@@ -2,11 +2,12 @@
 // definePageMeta({
 //   layout: 'custom',
 // });
+const title = ref('Aboutページ')
 definePageMeta({
   pageTransition: false
 })
 useHead({
-  title: 'Aboutページ',
+  title,
   meta: [
     {
       name: 'description',
