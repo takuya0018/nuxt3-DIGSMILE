@@ -14,7 +14,7 @@ function clickShow():void {
 </script>
 <template>
   <div>
-    <h1>トップページ</h1>
+    <h1>トップページ<span>TOP</span></h1>
     <hr />
     <button @click="clickShow">クリックしてみて</button>
     <TestTset v-if="show" />
@@ -24,3 +24,8 @@ function clickShow():void {
     <NuxtLayout name="footer"></NuxtLayout>
   </div>
 </template>
+<style scoped lang="scss">
+h1 {
+  font-family: "Noto Serif JP", sans-serif;
+}
+</style>

@@ -1,13 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   components: [
     {
       path: '~/components',
       pathPrefix: false,
     },
   ],
-  css: ['/assets/css/basic.css','/assets/css/reset.css'],
+
+  css: ['/assets/css/reset.css','/assets/css/basic.css'],
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },// ページ遷移でアニメーション（cssにも記載）
     head: {
@@ -16,4 +19,12 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', href: '/ICON.svg' }],
     },
   },
+
+  modules: [
+    ['@nuxtjs/google-fonts', {
+        families: {
+          Montserrat: true,
+        }
+    }],
+  ],
 })
