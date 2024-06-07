@@ -86,6 +86,7 @@ function change():void{
 nav {
   position: fixed;
   width: 100%;
+  z-index: 999;
   & > ul.headNavWrap{
     display: flex;
     justify-content: space-between;

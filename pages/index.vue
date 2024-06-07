@@ -5,7 +5,6 @@
 // definePageMeta({ //ページ内で使いたくない時の関数
 //   layout: false,
 // });
-import TestTset from '~/components/nav/TestTest.vue';
 const show = ref(false);
 
 function clickShow():void {
@@ -13,18 +12,58 @@ function clickShow():void {
 }
 </script>
 <template>
-  <div>
-    <h1>トップページ<span>TOP</span></h1>
-    <hr />
-    <button @click="clickShow">クリックしてみて</button>
-    <TestTset v-if="show" />
-    <NuxtLink to="/About/">aboutページ</NuxtLink>
-    <br />
-    <NuxtLink to="https://www.google.co.jp/">Google</NuxtLink>
-    <NuxtLayout name="footer"></NuxtLayout>
-  </div>
+  <section class="fv_wrap">
+    <ul class="fv_wrap__content">
+      <li class="img_area">
+        <figure>
+          <img src="@/assets/img/kv-img.jpg" alt="fv画像">
+        </figure>
+      </li>
+      <li class="title_area">
+        <div class="title_area__wrap">
+          <p>デザインで人を笑顔にする会社<br>DIGSMILE INC.</p>
+          <h1>DESIGN<br>FOR<br>SMILE.</h1>
+        </div>
+      </li>
+    </ul>
+  </section>
 </template>
 <style scoped lang="scss">
+.fv_wrap {
+  width: 100%;
+  height: 100vh;
+  &__content {
+    position: relative;
+    & > .img_area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(1100 / 1440 * 100vw);
+      z-index: 1;
+    }
+    & .title_area {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(780 / 1440 * 100vw);
+      height: calc( 740 / 1440 * 100vw);
+      background-color: #222;
+      &__wrap {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        & > p {
+          color: #fff;
+        }
+        & > h1 {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 h1 {
   font-family: "Noto Serif JP", sans-serif;
 }
