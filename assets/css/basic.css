@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(86, 80, 255);
+  /* background-color: rgb(86, 80, 255); */
 }
 .page-enter-active,
 .page-leave-active {
@@ -9,4 +9,15 @@ body {
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+:root {
+  --main-font: "Montserrat", sans-serif;
+}
+
+.mod__section-title {
+  font-family: var(--main-font);
+  font-weight: bold;
+  font-size: 32px;
+  color: #333;
 }
