@@ -1,10 +1,22 @@
 <script setup lang="ts">
+import TopPage from '~/components/top/TopPage.vue';
 // function enableCustomLayout():void { // setPageLayout関数で表示する事ができる
 //   setPageLayout('default');
 // }
 // definePageMeta({ //ページ内で使いたくない時の関数
 //   layout: false,
 // });
+interface listContent {
+  titleContent?:String,
+  imgContent?:String,
+  figContent?:String,
+  linkContent?:String,
+}
+
+const workList:listContent[] = [
+  { titleContent: "WORKS", imgContent: "image02.jpg", figContent: "DIGSMILEの制作実績を紹介します。", linkContent: "/about/"},
+  { titleContent: "WORKS", imgContent: "image02.jpg", figContent: "DIGSMILEの制作実績を紹介します。", linkContent: "/about/"}
+]
 </script>
 <template>
   <section class="fv_wrap">
@@ -37,6 +49,9 @@
         </div>
       </article>
     </div>
+  </section>
+  <section>
+    <TopPage :items="workList" />
   </section>
 </template>
 <style scoped lang="scss">
