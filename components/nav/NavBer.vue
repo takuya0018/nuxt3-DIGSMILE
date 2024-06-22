@@ -69,7 +69,7 @@ function change():void{
           <a href="/works/">WORKS</a>
         </li>
         <li>
-          <NuxtLink to="/culture/">CULTURE</NuxtLink>
+          <NuxtLink to="../#works">CULTURE</NuxtLink>
         </li>
         <li>
           <a href="/topics/">TOPICS</a>
@@ -83,116 +83,119 @@ function change():void{
 </template>
 
 <style scoped lang="scss">
-nav {
-  position: fixed;
-  width: 100%;
-  z-index: 999;
-  & > ul.headNavWrap{
-    display: flex;
-    justify-content: space-between;
-    margin: 35px 43px 0;
-    & > li {
-      display: flex;
-      transition: all 3s;// メニューの色の変化
-      > a {
-        display: flex;
-        align-items: center;
-        line-height: 0;
-        z-index: 999;
-        > svg {
-          display: flex;
-        }
-        > p {
-          font-family: "Montserrat", sans-serif;
-          font-size: 34px;
-          font-weight: bold;
-          color: #fff;
-          > span {
-            font-size: 22px;
-            margin-left: 6px;
-          }
-        }
-      }
-      & > .navBtn {
-        display: flex;
-        align-items: center;
-        z-index: 999;
-        cursor: pointer;
-        column-gap: 7px;
-        color: #fff;
-        p.btnNav {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          gap: 10px;
-          position: relative;
-          width: 22px;
-          height: 10px;
-          span {
-            position: absolute;
-            width: 22px;
-            height: 2px;
-            background-color: #fff;
-            transition: all .5s;
-            &:nth-of-type(1){
-              top: 0;
-            }
-            &:nth-of-type(3){
-              bottom: 0;
-            }
-          }
-        }
-        p.closeBtn {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          gap: 10px;
-          position: relative;
-          width: 22px;
-          height: 10px;
-          span {
-            position: absolute;
-            width: 22px;
-            height: 2px;
-            background-color: #fff;
-            transition: all .5s;
-            &:nth-of-type(1){
-              transform: rotate(-45deg)translateY(-50%);
-              top: 50%;
-            }
-            &:nth-of-type(2){
-              display: none;
-            }
-            &:nth-of-type(3){
-              transform: rotate(45deg)translateY(-50%);
-              top: 50%;
-            }
-          }
-        }
-      }
-    }
-    & > li.isActive {
-        color: red;
-      }
-  }
-  & > ul.navContent {
+header {
+  position: relative;
+  nav {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 20px;
-    top: 0;
-    right: 0;
-    width: 30%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: rgba($color: #6f6f6f, $alpha: .6);
-    li {
-      a {
-        color: #fff;
+    width: 100%;
+    z-index: 999;
+    & > ul.headNavWrap{
+      display: flex;
+      justify-content: space-between;
+      margin: 35px 43px 0;
+      & > li {
+        display: flex;
+        transition: all 3s;// メニューの色の変化
+        > a {
+          display: flex;
+          align-items: center;
+          line-height: 0;
+          z-index: 999;
+          > svg {
+            display: flex;
+          }
+          > p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 34px;
+            font-weight: bold;
+            color: #fff;
+            > span {
+              font-size: 22px;
+              margin-left: 6px;
+            }
+          }
+        }
+        & > .navBtn {
+          display: flex;
+          align-items: center;
+          z-index: 999;
+          cursor: pointer;
+          column-gap: 7px;
+          color: #fff;
+          p.btnNav {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            width: 22px;
+            height: 10px;
+            span {
+              position: absolute;
+              width: 22px;
+              height: 2px;
+              background-color: #fff;
+              transition: all .5s;
+              &:nth-of-type(1){
+                top: 0;
+              }
+              &:nth-of-type(3){
+                bottom: 0;
+              }
+            }
+          }
+          p.closeBtn {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            width: 22px;
+            height: 10px;
+            span {
+              position: absolute;
+              width: 22px;
+              height: 2px;
+              background-color: #fff;
+              transition: all .5s;
+              &:nth-of-type(1){
+                transform: rotate(-45deg)translateY(-50%);
+                top: 50%;
+              }
+              &:nth-of-type(2){
+                display: none;
+              }
+              &:nth-of-type(3){
+                transform: rotate(45deg)translateY(-50%);
+                top: 50%;
+              }
+            }
+          }
+        }
+      }
+      & > li.isActive {
+          color: red;
+        }
+    }
+    & > ul.navContent {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 20px;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgba($color: #6f6f6f, $alpha: .6);
+      li {
+        a {
+          color: #fff;
+        }
       }
     }
   }

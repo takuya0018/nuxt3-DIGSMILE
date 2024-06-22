@@ -16,10 +16,29 @@ defineProps({
         <img :src="'/_nuxt/assets/img/' + item.imgContent" alt="works" srcset="">
         <figcaption>{{ item.figContent }}</figcaption>
       </figure>
-      <div class="link-area">
+      <div class="mod__read-link">
         <a :href="item.linkContent">READ MORE</a>
       </div>
     </div>
   </div>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.listContent {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  min-width: 1100px;
+  margin: 0 auto;
+  padding-top: 179px;
+  .works {
+    display: flex;
+    flex-direction: column;
+    row-gap: 28px;
+    figure {
+      display: flex;
+      flex-direction: column;
+      row-gap: 28px;
+    }
+  }
+}
+</style>

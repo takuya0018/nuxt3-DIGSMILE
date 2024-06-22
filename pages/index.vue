@@ -7,17 +7,29 @@ import TopPage from '~/components/top/TopPage.vue';
 //   layout: false,
 // });
 interface listContent {
-  titleContent?:String,
-  imgContent?:String,
-  figContent?:String,
-  linkContent?:String,
+  titleContent: String,
+  imgContent: String,
+  figContent: String,
+  linkContent: String,
+}
+
+interface newsList {
+  datetime: string,
+  listcontent: String
 }
 
 const workList:listContent[] = [
   { titleContent: "WORKS", imgContent: "image02.jpg", figContent: "DIGSMILEの制作実績を紹介します。", linkContent: "/about/"},
-  { titleContent: "WORKS", imgContent: "image02.jpg", figContent: "DIGSMILEの制作実績を紹介します。", linkContent: "/about/"}
+  { titleContent: "CULTURE", imgContent: "image03.jpg", figContent: "DIGSMILEの社内文化について紹介します。", linkContent: "/about/"}
+]
+
+const news:newsList[] = [
+  { datetime: '2022.02.02', listcontent: 'イベントレポート「VRクリエイター座談会〜 5Gの次に来るもの〜」' },
+  { datetime: '2022.02.02', listcontent: 'イベントレポート「VRクリエイター座談会〜 5Gの次に来るもの〜」' },
+  { datetime: '2022.02.02', listcontent: 'イベントレポート「VRクリエイター座談会〜 5Gの次に来るもの〜」' }
 ]
 </script>
+
 <template>
   <section class="fv_wrap">
     <ul class="fv_wrap__content">
@@ -43,22 +55,56 @@ const workList:listContent[] = [
             ABOUT US
           </h2>
           <p>DIGSMILEは、デザインで人を笑顔にする会社。<br>なんでもない日常に少しワクワクと遊び心を提供します。笑顔には世界を変える力がある。デザインには人を幸せにする力がある。毎日に幸せをを感じて生きていきたい。<br>DIGSMILEの社名には、そんな想いが込められています。</p>
-          <div class="link-about">
+          <div class="mod__read-link">
             <a href="/about/">READ MORE</a>
           </div>
         </div>
       </article>
     </div>
   </section>
-  <section>
+  <section class="listColum" id="works">
     <TopPage :items="workList" />
+  </section>
+  <section class="topics">
+    <h2 class="mod__section-title">
+      LATEST TOPICS
+    </h2>
+    <!-- components化 -->
+    <div class="news-list-wrap">
+      <ul>
+        <li v-for="(item,index) in news" :key="index">
+          <p><time :datetime="item.datetime">{{ item.datetime }}</time></p>
+          <p>{{ item.listcontent }}</p>
+        </li>
+      </ul>
+      <div class="mod__read-link">
+        <a href="/about/">READ MORE</a>
+      </div>
+    </div>
+    <!-- /components化 -->
+  </section>
+  <section class="contact">
+    <div class="contact__wrap">
+      <div class="contact__wrap--description">
+        <h2 class="mod__section-title">
+          CONTACT
+        </h2>
+        <p>制作の依頼、取材の依頼、IRや採用についての連絡・お問い合わせはコンタクトページから承っております。<br>まずはお気軽にご連絡ください。担当者から改めて返信いたします。</p>
+        <div class="mod__read-link">
+          <a href="/about/">READ MORE</a>
+        </div>
+      </div>
+      <figure>
+        <img src="@/assets/img/image04.jpg" alt="" srcset="">
+      </figure>
+    </div>
   </section>
 </template>
 <style scoped lang="scss">
 .fv_wrap {
   width: 100%;
-  height: calc(740 / 1400* 100vw);
-  margin-bottom: 120px;
+  height: 100vh;
+  margin-bottom: 200px;
   &__content {
     position: relative;
     & > .img_area {
@@ -67,13 +113,20 @@ const workList:listContent[] = [
       left: 0;
       width: calc(1100 / 1440 * 100vw);
       z-index: 1;
+      figure {
+        height: 89vh;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
     & .title_area {
       position: absolute;
       top: 0;
       right: 0;
       width: calc(780 / 1440 * 100vw);
-      height: calc( 740 / 1440 * 100vw);
+      height: 100vh;
       background-color: #222;
       &__wrap {
         position: absolute;
@@ -116,21 +169,70 @@ const workList:listContent[] = [
           max-width: 518px;
           line-height: 2;
         }
-        > .link-about {
-          background-color: #000;
-          width: 160px;
-          height: 36px;
-          a {
-            color: #fff;
-            font-size: 12px;
+      }
+    }
+  }
+}
+.listColum {
+  width: 100%;
+  background: #F0F0F0;
+  margin-top: -100px;
+}
+.topics {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0;
+  .news-list-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    ul {
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+      margin-bottom: 30px;
+      width: 700px;
+      li {
+        border-bottom: 1px solid #DDDDDD;
+        padding-bottom: 9px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        p {
+          font-size: 14px;
+          font-weight: bold;
+          color: #333333;
+          time {
+            font-size: 10px;
             font-weight: bold;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #CECECE;
           }
         }
+      }
+    }
+  }
+}
+.contact {
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 60px 0 120px;
+  &__wrap {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--description {
+      max-width: 437px;
+      width: 100%;
+      p {
+        margin: 32px 0 56px;
+        font-size: 16px;
+        color: #333333;
+        line-height: 2;
       }
     }
   }

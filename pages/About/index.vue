@@ -4,7 +4,7 @@
 // });
 const title = ref('Aboutページ')
 definePageMeta({
-  pageTransition: false
+  pageTransition: true
 })
 useHead({
   title,
