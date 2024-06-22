@@ -233,6 +233,9 @@ const news:newsList[] = [
         font-size: 16px;
         color: #333333;
         line-height: 2;
+        @include mq(sm) {
+          color: red;
+        }
       }
     }
   }

@@ -9,7 +9,16 @@ export default defineNuxtConfig({
     },
   ],
 
-  css: ['/assets/css/reset.css','/assets/css/basic.css'],
+  css: ['/assets/css/reset.css','/assets/scss/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/scss/_variables.scss";@import "@/assets/scss/_basic.scss";',
+        },
+      },
+    },
+  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },// ページ遷移でアニメーション（cssにも記載）
